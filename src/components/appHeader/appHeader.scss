@@ -1,0 +1,39 @@
+.app {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8.8rem;
+    padding-left: 10.4rem;
+    padding-right: 10.4rem;
+    background-color: #040203;
+    h1:hover {
+      cursor: pointer;
+    }
+  }
+  &__title{
+    font-weight: 800;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
+    color: #FFFFFF;
+  }
+  &__menu {
+    ul{
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      color: #8D8D8D;
+    }
+    li{
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+      padding-left: 2.4rem;
+      padding-right: 2.4rem;
+    }
+    li:hover {
+      cursor: pointer;
+    }
+  }
+}

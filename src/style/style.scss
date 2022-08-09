@@ -6,10 +6,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #FFFFFF;
 }
 
 html {
   font-size: 62.5%;
+  background-color: black;
 }
 
 ul,
@@ -37,3 +39,32 @@ p {
   margin: 0;
   padding: 0;
 }
+
+.app {
+  height: 100vh;
+  .bg-planet {
+    display: block;
+    position: absolute;
+  }
+  .linkContainer {
+    padding-top: 1.8rem;
+    padding-left: 10.4rem;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+  .link-white {
+    color: #E4E4E4;
+  }
+  .link-gray {
+    color: #7D7D7D;
+  }
+  .errorMessage {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    color: #bb3535;
+  }
+}
+

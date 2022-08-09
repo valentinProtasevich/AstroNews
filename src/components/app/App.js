@@ -6,7 +6,7 @@ import AppHeader from "../appHeader/AppHeader";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="app">
         <AppHeader/>
         <main>
           <Switch>

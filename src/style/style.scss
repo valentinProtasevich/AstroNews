@@ -1,3 +1,4 @@
+@import './button.scss';
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
 
 * {
@@ -29,6 +30,7 @@ h6 {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 p {

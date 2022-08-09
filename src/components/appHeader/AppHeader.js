@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import './appHeader.scss';
 
 const AppHeader = () => {
@@ -8,10 +10,10 @@ const AppHeader = () => {
       </h1>
       <nav className='app__menu'>
         <ul>
-          <li>Главная</li>
-          <li>Статьи</li>
-          <li>Вход</li>
-          <li>Регистрация</li>
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">Статьи</a></li>
+          <li><a href="#">Вход</a></li>
+          <li><NavLink exact activeClassName='app__menu_selected' to='/registration'>Регистрация</NavLink></li>
         </ul>
       </nav>
     </header>

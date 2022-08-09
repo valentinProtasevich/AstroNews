@@ -1,14 +1,22 @@
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import { RegistrationPage } from "../pages";
 import AppHeader from "../appHeader/AppHeader";
-import RegistrationForm from "../registrationForm/RegistrationForm";
 
 function App() {
   return (
-    <div className="App">
-      <AppHeader/>
-      <main>
-        <RegistrationForm/>
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <AppHeader/>
+        <main>
+          <Switch>
+            <Route exact path='/registration'>
+              <RegistrationPage/>
+            </Route>
+          </Switch>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

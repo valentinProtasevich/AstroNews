@@ -85,7 +85,6 @@ const RegistrationForm = () => {
             pattern:  /^[A-ZА-Я][а-яА-ЯёЁa-zA-Z]+$/
           })} 
           required
-          placeholder='Введите имя'
           />
         {errors?.fullName?.type === "pattern" && <p className='errorMessage registration__form_errorName'>Имя должно содержать только буквы без пробелов, первая буква должна быть заглавной.</p>}
 
@@ -95,7 +94,6 @@ const RegistrationForm = () => {
             pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
           })} 
           required
-          placeholder='Введите Email'
           />
         {errors?.email?.type === "pattern" && <p className='errorMessage registration__form_errorEmail'>Пожалуйста, введите корректный адрес электронной почты.</p>}
 
@@ -106,7 +104,6 @@ const RegistrationForm = () => {
             pattern: /^(?=.*[A-ZА-Я].)(?=.*[!@#$&*])(?=.*[0-9].)(?=.*[a-zа-я].).{8,}$/
           })} 
           required
-          placeholder='Введите пароль'
           />
         {errors?.password?.type === "minLength" && <p className='errorMessage registration__form_errorPassword'>Минимум 8 символов.</p>}
         {errors?.password?.type === "pattern" && <p className='errorMessage registration__form_errorPassword'>Пароль должен включать в себя минимум 1 цифру, минимум 1 прописную букву, минимум 1 строчную букву и 1 спец. символ.</p>}
@@ -118,7 +115,6 @@ const RegistrationForm = () => {
             pattern: /^(?=.*[A-ZА-Я].)(?=.*[!@#$&*])(?=.*[0-9].)(?=.*[a-zа-я].).{8,}$/
           })} 
           required
-          placeholder='Повторите пароль'
           />
         {errors?.repeatPassword?.type === "minLength" && <p className='errorMessage registration__form_errorRepeatPassword'>Минимум 8 символов.</p>}
         {errors?.repeatPassword?.type === "pattern" && <p className='errorMessage registration__form_errorRepeatPassword'>Пароль должен включать в себя минимум 1 цифру, минимум 1 прописную букву, минимум 1 строчную букву и 1 спец. символ.</p>}

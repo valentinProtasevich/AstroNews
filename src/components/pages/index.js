@@ -1,3 +1,4 @@
 import RegistrationPage from "./RegistrationPage";
+import Homepage from './Homepage';
 
-export {RegistrationPage};
+export {RegistrationPage, Homepage};

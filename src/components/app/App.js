@@ -1,11 +1,10 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
-import { RegistrationPage, Homepage } from "../pages";
+import { RegistrationPage, Homepage, LoginPage } from "../pages";
 import AppHeader from "../appHeader/AppHeader";
 
 function App() {
   return (
-    <BrowserRouter>
       <div className="app">
         <AppHeader/>
         <main>
@@ -13,13 +12,15 @@ function App() {
             <Route exact path='/'>
               <Homepage/>
             </Route>
+            <Route exact path='/login'>
+              <LoginPage/>
+            </Route>
             <Route exact path='/registration'>
               <RegistrationPage/>
             </Route>
           </Switch>
         </main>
       </div>
-    </BrowserRouter>
   );
 }
 

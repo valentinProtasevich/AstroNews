@@ -64,7 +64,7 @@ const RegistrationForm = () => {
         <input className='registration__input registration__submitBtn' type="submit" value={'Зарегистрироваться'}/>
       </form>
       <p>Уже есть аккаунт?</p>
-      <a href="#">Войти</a>
+      <Link exact to='/login'>Войти</Link>
       <p>Или зарегистрироваться с помощью</p>
       <div className='registration__buttonContainer'>
         <button className='button'>

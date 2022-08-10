@@ -1,13 +1,47 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+import { setUser } from '../../store/slices/userSlice';
 
 import './registrationForm.scss';
+
 import googleIcon from '../../resources/img/google.svg';
 import facebookIcon from '../../resources/img/facebook.svg';
 
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
+  const {push} = useHistory();
+
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  // const onSubmit = data => console.log(data.email, data.password);
+  const onSubmit = data => {
+    if (data.password === data.repeatPassword) {
+      console.log(data.password, data.email)
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, data.email, data.password)
+        .then(({user}) => {
+          console.log(user);
+          dispatch(setUser({
+            userName: data.fullName,
+            email: user.email,
+            token: user.accessToken,
+            id: user.uid,
+          }));
+          push('/account');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          if (errorCode === 'auth/email-already-in-use') {
+            alert('Ошибка. Пользователь с таким email адресом уже зарегестрирован.');
+          };
+        });
+    } else {
+      alert('Пароли не совпадают.');
+    }
+  };
   
   return (
     <div className='registration__grid'>
@@ -20,6 +54,7 @@ const RegistrationForm = () => {
             pattern:  /^[A-ZА-Я][а-яА-ЯёЁa-zA-Z]+$/
           })} 
           required
+          placeholder='Введите имя'
           />
         {/* {errors?.fullName?.type === "required" && <p className='errorMessage'>Пожалуйста, заполните это поле.</p>} */}
         {errors?.fullName?.type === "pattern" && <p className='errorMessage registration__form_errorName'>Имя должно содержать только буквы без пробелов, первая буква должна быть заглавной.</p>}
@@ -31,6 +66,7 @@ const RegistrationForm = () => {
             pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
           })} 
           required
+          placeholder='Введите Email'
           />
         {/* {errors?.email?.type === "required" && <p className='errorMessage'>Пожалуйста, заполните это поле.</p>} */}
         {errors?.email?.type === "pattern" && <p className='errorMessage registration__form_errorEmail'>Пожалуйста, введите корректный адрес электронной почты.</p>}
@@ -43,6 +79,7 @@ const RegistrationForm = () => {
             pattern: /^(?=.*[A-ZА-Я].)(?=.*[!@#$&*])(?=.*[0-9].)(?=.*[a-zа-я].).{8,}$/
           })} 
           required
+          placeholder='Введите пароль'
           />
         {/* {errors?.password?.type === "required" && <p className='errorMessage'>Пожалуйста, заполните это поле.</p>} */}
         {errors?.password?.type === "minLength" && <p className='errorMessage registration__form_errorPassword'>Минимум 8 символов.</p>}
@@ -56,6 +93,7 @@ const RegistrationForm = () => {
             pattern: /^(?=.*[A-ZА-Я].)(?=.*[!@#$&*])(?=.*[0-9].)(?=.*[a-zа-я].).{8,}$/
           })} 
           required
+          placeholder='Повторите пароль'
           />
         {/* {errors?.repeatPassword?.type === "required" && <p className='errorMessage'>Пожалуйста, заполните это поле.</p>} */}
         {errors?.repeatPassword?.type === "minLength" && <p className='errorMessage registration__form_errorRepeatPassword'>Минимум 8 символов.</p>}

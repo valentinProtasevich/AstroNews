@@ -1,6 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 
-import { RegistrationPage, Homepage, LoginPage } from "../pages";
+import { RegistrationPage, Homepage, LoginPage, AccountPage } from "../pages";
 import AppHeader from "../appHeader/AppHeader";
 
 function App() {
@@ -9,15 +9,10 @@ function App() {
         <AppHeader/>
         <main>
           <Switch>
-            <Route exact path='/'>
-              <Homepage/>
-            </Route>
-            <Route exact path='/login'>
-              <LoginPage/>
-            </Route>
-            <Route exact path='/registration'>
-              <RegistrationPage/>
-            </Route>
+            <Route exact path='/' component={Homepage} />
+            <Route exact path='/login' component={LoginPage} />
+            <Route exact path='/registration' component={RegistrationPage} />
+            <Route exact path='/account' component={AccountPage} />
           </Switch>
         </main>
       </div>

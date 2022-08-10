@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import { RegistrationPage, Homepage, LoginPage, AccountPage } from "../pages";
 import AppHeader from "../appHeader/AppHeader";
@@ -8,12 +8,12 @@ function App() {
       <div className="app">
         <AppHeader/>
         <main>
-          <Switch>
-            <Route exact path='/' component={Homepage} />
-            <Route exact path='/login' component={LoginPage} />
-            <Route exact path='/registration' component={RegistrationPage} />
-            <Route exact path='/account' component={AccountPage} />
-          </Switch>
+          <Routes>
+            <Route path='/' element={<Homepage/>} />
+            <Route path='/login' element={<LoginPage/>} />
+            <Route path='/registration' element={<RegistrationPage/>} />
+            <Route path='/account' element={<AccountPage/>} />
+          </Routes>
         </main>
       </div>
   );

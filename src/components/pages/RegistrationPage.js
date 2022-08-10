@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { NavLink } from "react-router-dom";
 
 import RegistrationForm from "../registrationForm/RegistrationForm";
 
@@ -17,8 +18,8 @@ const RegistrationPage = () => {
       <img className="bg-planet" src={main_planet} alt="Blue planet" />
       <div className="registration__content">
         <div className="linkContainer">
-          <a className="link-white" href="#">Главная /</a>
-          <a className="link-gray" href="#"> Регистрация</a>
+          <NavLink to='/' className='link-white'>Главная /</NavLink>
+          <NavLink to='/registration' className='link-gray'> Регистрация</NavLink>
         </div>
         <RegistrationForm/>
       </div>

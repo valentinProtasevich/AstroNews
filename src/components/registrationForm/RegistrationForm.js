@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup  } from "firebase/auth";
 
@@ -12,7 +12,7 @@ import facebookIcon from '../../resources/img/facebook.svg';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const {push} = useHistory();
+  const navigate = useNavigate();
 
   const { register, formState: { errors }, handleSubmit } = useForm();
   const onSubmit = data => {
@@ -26,7 +26,7 @@ const RegistrationForm = () => {
             token: user.accessToken,
             id: user.uid,
           }));
-          push('/account');
+          navigate('/account');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -42,7 +42,7 @@ const RegistrationForm = () => {
     }
   };
 
-  const registerWithGoogle = () => {
+  const registrationWithGoogle = () => {
     const provider = new GoogleAuthProvider();
 
     const auth = getAuth();
@@ -60,7 +60,7 @@ const RegistrationForm = () => {
           id: user.uid,
           userPhotoUrl: user.photoURL,
         }));
-        push('/account');
+        navigate('/account');
       }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
@@ -126,10 +126,10 @@ const RegistrationForm = () => {
         <input className='registration__input registration__submitBtn' type="submit" value={'Зарегистрироваться'}/>
       </form>
       <p>Уже есть аккаунт?</p>
-      <Link exact to='/login'>Войти</Link>
+      <Link to='/login'>Войти</Link>
       <p>Или зарегистрироваться с помощью</p>
       <div className='registration__buttonContainer'>
-        <button className='button' onClick={registerWithGoogle}>
+        <button className='button' onClick={registrationWithGoogle}>
           <img src={googleIcon} alt="Google icon" />
           Google
         </button>

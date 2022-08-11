@@ -19,6 +19,11 @@ const AppHeader = () => {
           <li><NavLink 
               end 
               className={({ isActive }) => "" + (isActive ? " app__menu_selected" : "")}
+              to='/account'>Личный кабинет</NavLink>
+          </li>
+          <li><NavLink 
+              end 
+              className={({ isActive }) => "" + (isActive ? " app__menu_selected" : "")}
               to='/login'>Вход</NavLink>
           </li>
           <li><NavLink 

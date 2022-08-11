@@ -1,9 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
+import { Link } from 'react-router-dom';
 
-import { setUser } from '../../store/slices/userSlice';
+import useRegistrationWithEmail from '../../hooks/useRegistrationWithEmail';
 import useRegistrationWithGoogle from '../../hooks/useRegistrationWithGoogle';
 import useRegistrationWithFacebook from '../../hooks/useRegistrationWithFacebook';
 
@@ -13,34 +11,14 @@ import googleIcon from '../../resources/img/google.svg';
 import facebookIcon from '../../resources/img/facebook.svg';
 
 const RegistrationForm = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const registrationWithEmail = useRegistrationWithEmail();
   const registrationWithGoogle = useRegistrationWithGoogle();
   const registrationWithFacebook = useRegistrationWithFacebook();
 
   const { register, formState: { errors }, handleSubmit } = useForm();
   const onSubmit = data => {
     if (data.password === data.repeatPassword) {
-      const auth = getAuth();
-      createUserWithEmailAndPassword(auth, data.email, data.password)
-        .then(({user}) => {
-          dispatch(setUser({
-            userName: data.fullName,
-            email: user.email,
-            token: user.accessToken,
-            id: user.uid,
-          }));
-          navigate('/account');
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode);
-          console.log(errorMessage);
-          if (errorCode === 'auth/email-already-in-use') {
-            alert('Ошибка. Пользователь с таким email адресом уже зарегестрирован.');
-          };
-        });
+      registrationWithEmail(data);
     } else {
       alert('Пароли не совпадают.');
     }

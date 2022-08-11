@@ -5,6 +5,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithPopup, FacebookAuthP
 
 import { setUser } from '../../store/slices/userSlice';
 import useRegistrationWithGoogle from '../../hooks/useRegistrationWithGoogle';
+import useRegistrationWithFacebook from '../../hooks/useRegistrationWithFacebook';
 
 import './registrationForm.scss';
 
@@ -15,6 +16,7 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const registrationWithGoogle = useRegistrationWithGoogle();
+  const registrationWithFacebook = useRegistrationWithFacebook();
 
   const { register, formState: { errors }, handleSubmit } = useForm();
   const onSubmit = data => {
@@ -44,48 +46,6 @@ const RegistrationForm = () => {
     }
   };
 
-  const registrationWithFacebook = () => {
-    const provider = new FacebookAuthProvider();
-
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-        dispatch(setUser({
-          userName: user.displayName,
-          email: user.email,
-          token: user.accessToken,
-          id: user.uid,
-          userPhotoUrl: user.photoURL,
-        }));
-        navigate('/account');
-
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        const credential = FacebookAuthProvider.credentialFromResult(result);
-        const accessToken = credential.accessToken;
-
-        // ...
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-        if (errorCode === 'auth/account-exists-with-different-credential') {
-          alert('Ошибка. Учетная запись уже существует с другими учетными данными.')
-        }
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = FacebookAuthProvider.credentialFromError(error);
-
-        // ...
-      });
-  }
-  
   return (
     <div className='registration__grid'>
       <h1>Регистрация</h1>

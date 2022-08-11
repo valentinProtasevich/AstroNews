@@ -1,9 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
 
 import { setUser } from '../../store/slices/userSlice';
+import useRegistrationWithGoogle from '../../hooks/useRegistrationWithGoogle';
 
 import './registrationForm.scss';
 
@@ -13,6 +14,7 @@ import facebookIcon from '../../resources/img/facebook.svg';
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const registrationWithGoogle = useRegistrationWithGoogle();
 
   const { register, formState: { errors }, handleSubmit } = useForm();
   const onSubmit = data => {
@@ -40,39 +42,6 @@ const RegistrationForm = () => {
     } else {
       alert('Пароли не совпадают.');
     }
-  };
-
-  const registrationWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        dispatch(setUser({
-          userName: user.displayName,
-          email: user.email,
-          token: user.accessToken,
-          id: user.uid,
-          userPhotoUrl: user.photoURL,
-        }));
-        navigate('/account');
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
   };
 
   const registrationWithFacebook = () => {

@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider  } from "firebase/auth";
 
 import { setUser } from '../../store/slices/userSlice';
 
@@ -74,6 +74,48 @@ const RegistrationForm = () => {
         // ...
       });
   };
+
+  const registrationWithFacebook = () => {
+    const provider = new FacebookAuthProvider();
+
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+        dispatch(setUser({
+          userName: user.displayName,
+          email: user.email,
+          token: user.accessToken,
+          id: user.uid,
+          userPhotoUrl: user.photoURL,
+        }));
+        navigate('/account');
+
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const accessToken = credential.accessToken;
+
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        if (errorCode === 'auth/account-exists-with-different-credential') {
+          alert('Ошибка. Учетная запись уже существует с другими учетными данными.')
+        }
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = FacebookAuthProvider.credentialFromError(error);
+
+        // ...
+      });
+  }
   
   return (
     <div className='registration__grid'>
@@ -129,7 +171,7 @@ const RegistrationForm = () => {
           <img src={googleIcon} alt="Google icon" />
           Google
         </button>
-        <button className='button'>
+        <button className='button' onClick={registrationWithFacebook}>
           <img src={facebookIcon} alt="Facebook icon" />
           Facebook
         </button>

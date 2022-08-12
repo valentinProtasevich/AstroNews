@@ -26,7 +26,7 @@
       line-height: 2.2rem;
       color: #8D8D8D;
     }
-    li{
+    a{
       padding-top: 0.9rem;
       padding-bottom: 0.9rem;
       padding-left: 2.4rem;
@@ -34,6 +34,10 @@
     }
     li:hover {
       cursor: pointer;
+    }
+    &_selected {
+      color: #FFFFFF;
+      border: 1px solid #FFFFFF;
     }
   }
 }

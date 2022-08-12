@@ -1,14 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
+import useSignInWithEmail from '../../hooks/useSignInWithEmail';
+
 import './loginForm.scss';
 
 import googleIcon from '../../resources/img/google.svg';
 import facebookIcon from '../../resources/img/facebook.svg';
 
 const LoginForm = () => {
+  const signInWithEmail = useSignInWithEmail();
+
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => signInWithEmail(data);
+
   return (
     <div className='login__grid'>
       <h1>Вход</h1>

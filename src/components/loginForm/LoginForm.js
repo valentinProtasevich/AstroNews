@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import useSignInWithEmail from '../../hooks/useSignInWithEmail';
+import useRegistrationWithGoogle from '../../hooks/useRegistrationWithGoogle';
+import useRegistrationWithFacebook from '../../hooks/useRegistrationWithFacebook';
 
 import './loginForm.scss';
 
@@ -10,6 +12,8 @@ import facebookIcon from '../../resources/img/facebook.svg';
 
 const LoginForm = () => {
   const signInWithEmail = useSignInWithEmail();
+  const registrationWithGoogle = useRegistrationWithGoogle();
+  const registrationWithFacebook = useRegistrationWithFacebook();
 
   const { register, formState: { errors }, handleSubmit } = useForm();
   const onSubmit = data => signInWithEmail(data);
@@ -38,11 +42,11 @@ const LoginForm = () => {
       <Link to='/registration'>Вы еще не зарегистрированы?</Link>
       <p>Или войти с помощью</p>
       <div className='login__buttonContainer'>
-        <button className='button'>
+        <button className='button' onClick={registrationWithGoogle}>
           <img src={googleIcon} alt="Google icon" />
           Google
         </button>
-        <button className='button'>
+        <button className='button' onClick={registrationWithFacebook}>
           <img src={facebookIcon} alt="Facebook icon" />
           Facebook
         </button>

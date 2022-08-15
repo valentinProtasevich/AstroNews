@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { setUser } from '../store/slices/userSlice';
+import avatar from '../resources/img/avatar.svg';
 
 function useRegistrationWithEmail() {
   const dispatch = useDispatch();
@@ -17,14 +18,13 @@ function useRegistrationWithEmail() {
           email: user.email,
           token: user.accessToken,
           id: user.uid,
+          userPhotoUrl: avatar,
         }));
         navigate('/account');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
         if (errorCode === 'auth/email-already-in-use') {
           alert('Ошибка. Пользователь с таким email адресом уже зарегестрирован.');
         };

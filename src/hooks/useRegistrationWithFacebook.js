@@ -36,8 +36,6 @@ function useRegistrationWithFacebook() {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
       if (errorCode === 'auth/account-exists-with-different-credential') {
         alert('Ошибка. Учетная запись уже существует с другими учетными данными.')
       }

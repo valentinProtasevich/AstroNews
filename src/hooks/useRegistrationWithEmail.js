@@ -1,9 +1,8 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { setUser } from '../store/slices/userSlice';
-import avatar from '../resources/img/avatar.svg';
 
 function useRegistrationWithEmail() {
   const dispatch = useDispatch();
@@ -13,14 +12,22 @@ function useRegistrationWithEmail() {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then(({user}) => {
-        dispatch(setUser({
-          userName: data.fullName,
-          email: user.email,
-          token: user.accessToken,
-          id: user.uid,
-          userPhotoUrl: avatar,
-        }));
-        navigate('/account');
+        updateProfile(auth.currentUser, {
+          displayName: data.fullName, 
+          photoURL: "https://firebasestorage.googleapis.com/v0/b/astronews-83226.appspot.com/o/avatar.svg?alt=media&token=cf180e62-134d-4d33-94a4-020b1c57806d"
+        }).then(() => {
+          dispatch(setUser({
+            userName: user.displayName,
+            email: user.email,
+            token: user.accessToken,
+            id: user.uid,
+            userPhotoUrl: user.photoURL,
+            provider: 'email',
+          }));
+          navigate('/account');
+        }).catch((error) => {
+
+        });
       })
       .catch((error) => {
         const errorCode = error.code;

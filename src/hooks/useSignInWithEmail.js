@@ -12,13 +12,13 @@ function useSignInWithEmail() {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then(({user}) => {
-        console.log(user);
         dispatch(setUser({
-          userName: data.fullName,
+          userName: user.displayName,
           email: user.email,
           token: user.accessToken,
           id: user.uid,
           userPhotoUrl: user.photoURL,
+          provider: 'email',
         }));
         navigate('/account');
       })

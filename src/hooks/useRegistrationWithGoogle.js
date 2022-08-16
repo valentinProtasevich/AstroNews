@@ -26,6 +26,7 @@ function useRegistrationWithGoogle() {
         token: user.accessToken,
         id: user.uid,
         userPhotoUrl: user.photoURL,
+        provider: 'google',
       }));
       navigate('/account');
     }).catch((error) => {

@@ -23,6 +23,7 @@ function useRegistrationWithFacebook() {
         token: user.accessToken,
         id: user.uid,
         userPhotoUrl: user.photoURL,
+        provider: 'facebook',
       }));
       navigate('/account');
 

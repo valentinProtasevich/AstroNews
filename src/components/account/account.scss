@@ -29,6 +29,34 @@
       color: #E4E4E4;
     }
   }
+  &__imageContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__uploadImage_imput {
+    width: 30rem;
+    padding-left: 1rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    color: #E4E4E4;
+  }
+  &__uploadImage_button {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: transparent;
+    border: 2px solid #E4E4E4;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    color: #E4E4E4;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   &__label {
     align-self: end;
     font-weight: 400;
@@ -50,4 +78,8 @@
   &__image {
     
   }
+}
+
+.hidden {
+  display: none;
 }

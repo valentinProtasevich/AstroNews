@@ -67,6 +67,11 @@
     &:hover {
       cursor: pointer;
     }
+    &:disabled {
+      cursor: default;
+      border: 2px solid #7D7D7D;
+      color: #7D7D7D;
+    }
   }
   &__buttonContainer {
     display: grid;

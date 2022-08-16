@@ -1,0 +1,85 @@
+.account {
+  &__content {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(2, 50%);
+    background-image: url('../../resources/img/background.png');
+  }
+  &__grid {
+    justify-self: end;
+    display: grid;
+    grid-template-rows: 4.4rem 10rem 4.6rem 4.6rem 5.3rem 4.6rem 6rem;
+    width: 68.2rem;
+    padding-top: 17.7rem;
+    padding-right: 18rem;
+    h1{
+      justify-self: center;
+      font-weight: 700;
+      font-size: 3.2rem;
+      line-height: 4.4rem;
+      color: #F0F0F0;
+    }
+    a{
+      justify-self: center;
+      align-self: end;
+      text-decoration: underline;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 2.7rem;
+      color: #E4E4E4;
+    }
+  }
+  &__imageContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__uploadImage_imput {
+    width: 30rem;
+    padding-left: 1rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    color: #E4E4E4;
+  }
+  &__uploadImage_button {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: transparent;
+    border: 2px solid #E4E4E4;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    color: #E4E4E4;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__label {
+    align-self: end;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    color: #7D7D7D;
+  }
+  &__data {
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    background-color: transparent;
+    border: 2px solid #7D7D7D;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    color: #FFFFFF;
+  }
+  &__image {
+    
+  }
+}
+
+.hidden {
+  display: none;
+}

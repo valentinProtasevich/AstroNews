@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAuth, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -12,6 +12,7 @@ import { setUser } from "../../store/slices/userSlice";
 import './account.scss';
 
 const Account = () => {
+  const auth = getAuth();
   const dispatch = useDispatch();
   const {user} = useSelector(state => state);
   const [imageUpload, setImageUpload] = useState(null); 
@@ -39,30 +40,21 @@ const Account = () => {
   };
 
   const uploadProfileImag = (url) => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        updateProfile(auth.currentUser, {
-          photoURL: url
-        }).then(() => {
-          alert('Фото успешно изменено');
-          dispatch(setUser({
-            userName: user.displayName,
-            email: user.email,
-            token: user.accessToken,
-            id: user.uid,
-            userPhotoUrl: user.photoURL,
-            provider: 'email',
-          }));
-        }).catch((error) => {
-          alert('Ошибка загрузки фото.');
-        });
-      } else {
-        // User is signed out
-        alert('Ошибка. Выполните выход и снова авторизуйтесь.');
-      }
+    updateProfile(auth.currentUser, {
+      photoURL: url
+    }).then((res) => {
+      dispatch(setUser({
+        userName: auth.currentUser.displayName,
+        email: auth.currentUser.email,
+        token: auth.currentUser.accessToken,
+        id: auth.currentUser.uid,
+        userPhotoUrl: auth.currentUser.photoURL,
+        provider: 'email',
+      }));
+    }).catch((error) => {
+      alert('Ошибка загрузки фото.');
     });
-  };
+  }
   
   return (
     <div className="account__grid">

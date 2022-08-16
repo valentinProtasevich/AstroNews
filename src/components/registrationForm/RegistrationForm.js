@@ -15,7 +15,9 @@ const RegistrationForm = () => {
   const registrationWithGoogle = useRegistrationWithGoogle();
   const registrationWithFacebook = useRegistrationWithFacebook();
 
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors, isValid }, handleSubmit } = useForm({
+    mode: 'onBlur'
+  });
   const onSubmit = data => {
     if (data.password === data.repeatPassword) {
       registrationWithEmail(data);
@@ -68,7 +70,7 @@ const RegistrationForm = () => {
         {errors?.repeatPassword?.type === "minLength" && <p className='errorMessage registration__form_errorRepeatPassword'>Минимум 8 символов.</p>}
         {errors?.repeatPassword?.type === "pattern" && <p className='errorMessage registration__form_errorRepeatPassword'>Пароль должен включать в себя минимум 1 цифру, минимум 1 прописную букву, минимум 1 строчную букву и 1 спец. символ.</p>}
 
-        <input className='registration__input registration__submitBtn' type="submit" value={'Зарегистрироваться'}/>
+        <input className='registration__input registration__submitBtn' type="submit" value={'Зарегистрироваться'} disabled={!isValid}/>
       </form>
       <p>Уже есть аккаунт?</p>
       <Link to='/login'>Войти</Link>

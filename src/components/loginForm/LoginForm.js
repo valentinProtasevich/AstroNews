@@ -15,7 +15,9 @@ const LoginForm = () => {
   const registrationWithGoogle = useRegistrationWithGoogle();
   const registrationWithFacebook = useRegistrationWithFacebook();
 
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors, isValid }, handleSubmit } = useForm({
+    mode: 'onBlur'
+  });
   const onSubmit = data => signInWithEmail(data);
 
   return (
@@ -37,7 +39,7 @@ const LoginForm = () => {
           required
           />
 
-        <input className='login__input login__submitBtn' type="submit" value={'Войти'}/>
+        <input className='login__input login__submitBtn' type="submit" value={'Войти'} disabled={!isValid}/>
       </form>
       <Link to='/registration'>Вы еще не зарегистрированы?</Link>
       <p>Или войти с помощью</p>

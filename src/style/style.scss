@@ -72,3 +72,13 @@ p {
   }
 }
 
+@media (max-width: 1024px) {
+  .app {
+    .bg-planet {
+      right: 58.4rem;
+    }
+    .linkContainer {
+      padding-left: 5rem;
+    }
+  }
+}

@@ -93,4 +93,21 @@
     column-gap: 2.7rem;
     margin-top: 0.8rem;
   }
+  &__button {
+    min-width: 23.7rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .registration {
+    &__grid {
+      width: 49.4rem;
+      padding-right: 9.6rem;
+    }
+    &__button {
+      min-width: 18.6rem;
+    }
+  }
 }

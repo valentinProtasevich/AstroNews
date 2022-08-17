@@ -76,11 +76,11 @@ const RegistrationForm = () => {
       <Link to='/login'>Войти</Link>
       <p>Или зарегистрироваться с помощью</p>
       <div className='registration__buttonContainer'>
-        <button className='button' onClick={registrationWithGoogle}>
+        <button className='button registration__button' onClick={registrationWithGoogle}>
           <img src={googleIcon} alt="Google icon" />
           Google
         </button>
-        <button className='button' onClick={registrationWithFacebook}>
+        <button className='button registration__button' onClick={registrationWithFacebook}>
           <img src={facebookIcon} alt="Facebook icon" />
           Facebook
         </button>

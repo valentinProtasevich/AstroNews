@@ -57,7 +57,7 @@ const RegistrationForm = () => {
           required
           />
         {errors?.password?.type === "minLength" && <p className='errorMessage registration__form_errorPassword'>Минимум 8 символов.</p>}
-        {errors?.password?.type === "pattern" && <p className='errorMessage registration__form_errorPassword'>Пароль должен включать в себя минимум 1 цифру, минимум 1 прописную букву, минимум 1 строчную букву и 1 спец. символ.</p>}
+        {errors?.password?.type === "pattern" && <p className='errorMessage registration__form_errorPassword'>Пароль должен включать в себя 1 цифру, 1 прописную букву, 1 строчную букву и 1 спец. символ.</p>}
 
         <label>Повтор пароля</label>
         <input className='registration__input' type={"password"}
@@ -68,7 +68,7 @@ const RegistrationForm = () => {
           required
           />
         {errors?.repeatPassword?.type === "minLength" && <p className='errorMessage registration__form_errorRepeatPassword'>Минимум 8 символов.</p>}
-        {errors?.repeatPassword?.type === "pattern" && <p className='errorMessage registration__form_errorRepeatPassword'>Пароль должен включать в себя минимум 1 цифру, минимум 1 прописную букву, минимум 1 строчную букву и 1 спец. символ.</p>}
+        {errors?.repeatPassword?.type === "pattern" && <p className='errorMessage registration__form_errorRepeatPassword'>Пароль должен включать в себя 1 цифру, 1 прописную букву, 1 строчную букву и 1 спец. символ.</p>}
 
         <input className='registration__input registration__submitBtn' type="submit" value={'Зарегистрироваться'} disabled={!isValid}/>
       </form>

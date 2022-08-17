@@ -45,14 +45,19 @@ const AppHeader = () => {
       )
     }
   };
+
+  const activateMenu = () => {
+    document.querySelector('.app__menu').classList.toggle('active');
+  }
   
   return (
     <header className='app__header'>
       <h1 className='app__title'>
         <Link to=''>AstroNews</Link>
       </h1>
+      <button className='app__header_burgerBtn' onClick={activateMenu}></button>
       <nav className='app__menu'>
-        <ul>
+        <ul onClick={activateMenu}>
           <li><NavLink 
               end 
               className={({ isActive }) => "" + (isActive ? " app__menu_selected" : "")}

@@ -82,10 +82,14 @@
     min-width: 23.7rem;
     padding-top: 0.8rem;
     padding-bottom: 0.9rem;
+    border: 2px solid #E4E4E4;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .login {
     &__grid {
       width: 49.4rem;

@@ -29,23 +29,26 @@
     }
   }
   &__imageContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    column-gap: 2rem;
+  }
+  &__image {
+    grid-column: 1/2;
+    grid-row: 1/3;
   }
   &__uploadImage_imput {
-    width: 30rem;
-    padding-left: 1rem;
+    grid-column: 2/3;
+    grid-row: 1/2;
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 2.5rem;
     color: #E4E4E4;
   }
   &__uploadImage_button {
+    grid-column: 2/3;
+    grid-row: 2/3;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
     background-color: transparent;
     border: 2px solid #E4E4E4;
     font-weight: 400;
@@ -74,11 +77,17 @@
     line-height: 2.5rem;
     color: #FFFFFF;
   }
-  &__image {
-    
-  }
 }
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 1024px) {
+  .account {
+    &__grid {
+      width: 49.4rem;
+      padding-right: 9.6rem;
+    }
+  }
 }

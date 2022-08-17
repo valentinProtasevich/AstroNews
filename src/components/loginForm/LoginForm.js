@@ -44,11 +44,11 @@ const LoginForm = () => {
       <Link to='/registration'>Вы еще не зарегистрированы?</Link>
       <p>Или войти с помощью</p>
       <div className='login__buttonContainer'>
-        <button className='button' onClick={registrationWithGoogle}>
+        <button className='button login__button' onClick={registrationWithGoogle}>
           <img src={googleIcon} alt="Google icon" />
           Google
         </button>
-        <button className='button' onClick={registrationWithFacebook}>
+        <button className='button login__button' onClick={registrationWithFacebook}>
           <img src={facebookIcon} alt="Facebook icon" />
           Facebook
         </button>

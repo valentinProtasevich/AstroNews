@@ -100,3 +100,70 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .login {
+    &__content {
+      padding-top: 11.8rem;
+      grid-template-columns: 100%;
+      justify-content: center;
+    }
+    &__grid {
+      justify-self: center;
+      grid-template-rows: 2.2rem 18.4rem 2.9rem 5rem 4.6rem;
+      width: 27.2rem;
+      padding-top: 0;
+      padding-right: 0;
+      h1{
+        justify-self: center;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+      }
+      p{
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+      a{
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+      }
+    }
+    &__form {
+      grid-template-rows: 2.4rem 3.2rem 3.6rem 3.2rem 6rem;
+      label {
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+      &_errorEmail {
+        top: 5.8rem;
+      }
+    }
+    &__input {
+      border: 1px solid #7D7D7D;
+    }
+    &__submitBtn {
+      margin-top: 2.4rem;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
+    &__buttonContainer {
+      justify-content: space-between;
+      column-gap: 0rem;
+      margin-top: 1.4rem;
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    &__button {
+      min-width: 12.7rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      border: 1px solid #E4E4E4;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
+  }
+}

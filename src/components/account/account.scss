@@ -92,3 +92,44 @@
   }
 }
 
+@media (max-width: 767px) {
+  .account {
+    &__content {
+      padding-top: 11.8rem;
+      grid-template-columns: 100%;
+      justify-content: center;
+    }
+    &__grid {
+      grid-template-rows: 3.4rem 18rem 3.6rem 3.2rem 3.6rem 3.2rem 4rem;
+      justify-self: center;
+      width: 27.2rem;
+      padding-top: 0;
+      padding-right: 0;
+      h1{
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+      }
+      p{
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+      a{
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+      }
+    }
+    &__image {
+      grid-column: 1/1;
+      grid-row: 1/2;
+      justify-self: center;
+    }
+    &__uploadImage_imput {
+      grid-column: 1/1;
+      grid-row: 2/3;
+    }
+    &__uploadImage_button {
+      grid-column: 1/1;
+      grid-row: 3/4;
+    }
+  }
+}

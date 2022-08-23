@@ -21,6 +21,9 @@
     color: #FFFFFF;
   }
   &__menu {
+    &_liMenu {
+      display: none;
+    }
     ul{
       display: flex;
       justify-content: space-between;
@@ -112,6 +115,7 @@
         }
       }
       &_liMenu {
+        display: flex;
         font-weight: 700;
         font-size: 20px;
         line-height: 27px;

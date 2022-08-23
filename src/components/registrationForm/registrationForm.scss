@@ -1,8 +1,7 @@
 .registration {
   &__content {
     display: grid;
-    height: 100vh;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: 30% 70%;
     background-image: url('../../resources/img/background.png');
   }
   &__grid {
@@ -93,5 +92,103 @@
     grid-auto-flow: column;
     column-gap: 2.7rem;
     margin-top: 0.8rem;
+  }
+  &__button {
+    min-width: 23.7rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.9rem;
+    border: 2px solid #E4E4E4;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .registration {
+    &__content {
+      grid-template-columns: 35% 65%;
+    }
+    &__grid {
+      width: 49.4rem;
+      padding-right: 9.6rem;
+    }
+    &__button {
+      min-width: 18.6rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .registration {
+    &__content {
+      padding-top: 8.2rem;
+      grid-template-columns: 100%;
+      justify-content: center;
+    }
+    &__grid {
+      justify-self: center;
+      grid-template-rows: 2.2rem 32.2rem 2.8rem 2.2rem 3rem 4rem;
+      width: 27.2rem;
+      padding-top: 0;
+      padding-right: 0;
+      h1{ 
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+      }
+      p{
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+      a{
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+      }
+    }
+    &__form {
+      grid-template-rows: 2.5rem 3.2rem 3.6rem 3.2rem 3.6rem 3.2rem 3.6rem 3.2rem 6.1rem;
+      label {
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+      &_errorName {
+        top: 5.8rem;
+      }
+      &_errorEmail {
+        top: 12.6rem;
+      }
+      &_errorPassword {
+        top: 19.4rem;
+      }
+      &_errorRepeatPassword {
+        top: 26.2rem;
+      }
+    }
+    &__input {
+      border: 1px solid #7D7D7D;
+    }
+    &__submitBtn {
+      margin-top: 2.5rem;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
+    &__buttonContainer {
+      justify-content: space-between;
+      column-gap: 0rem;
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    &__button {
+      min-width: 12.7rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      border: 1px solid #E4E4E4;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
   }
 }

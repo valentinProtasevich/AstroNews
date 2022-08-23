@@ -1,0 +1,39 @@
+.homePage {
+  &__grid {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: auto 64rem;
+    background-image: url('../../../resources/img/background.png');
+
+  }
+  &__backgroundPlanet {
+    width: 100%;
+  }
+  &__about {
+    align-self: center;
+    display: grid;
+    justify-items: start;
+    h1{
+      font-weight: 800;
+      font-size: 64px;
+      line-height: 72px;
+      color: #E4E4E4;
+    }
+    p{
+      margin-top: 1.6rem;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 36px;
+      color: #AFAFAF;
+    }
+    a{
+      margin-top: 6.4rem;
+      padding: 1.3rem 6.8rem;
+      border: 2px solid #E4E4E4;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 33px;
+      color: #E4E4E4;
+    }
+  }
+}

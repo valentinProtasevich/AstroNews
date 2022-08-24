@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 30% 70%;
     background-image: url('../../resources/img/background.png');
+    margin-bottom: 13rem;
   }
   &__grid {
     justify-self: end;
@@ -120,11 +121,17 @@
 }
 
 @media (max-width: 767px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .registration {
     &__content {
       padding-top: 8.2rem;
       grid-template-columns: 100%;
       justify-content: center;
+      margin-bottom: 5rem;
     }
     &__grid {
       justify-self: center;

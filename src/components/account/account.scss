@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 30% 70%;
     background-image: url('../../resources/img/background.png');
+    margin-bottom: 33rem;
   }
   &__grid {
     justify-self: end;
@@ -96,11 +97,17 @@
 }
 
 @media (max-width: 767px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .account {
     &__content {
       padding-top: 11.8rem;
       grid-template-columns: 100%;
       justify-content: center;
+      margin-bottom: 5rem;
     }
     &__grid {
       grid-template-rows: 3.4rem 18rem 3.6rem 3.2rem 3.6rem 3.2rem 4rem;

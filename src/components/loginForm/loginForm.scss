@@ -106,11 +106,17 @@
 }
 
 @media (max-width: 767px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .login {
     &__content {
       padding-top: 11.8rem;
       grid-template-columns: 100%;
       justify-content: center;
+      margin-bottom: 5rem;
     }
     &__grid {
       justify-self: center;

@@ -35,7 +35,7 @@ const Homepage = () => {
       <div className="homePage__grid">
         <img className="homePage__backgroundPlanet" src={bg_planet} alt="Jupiter" />
         <article className="homePage__about">
-          <h1>AstroNews — <br /> портал о космосе</h1>
+          <h1>AstroNews -<br /> портал о космосе</h1>
           <p>Статьи о космосе и космических объектах</p>
           <Link to='/articles'>Статьи</Link>
         </article>

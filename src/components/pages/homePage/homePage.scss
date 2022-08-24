@@ -15,15 +15,15 @@
     justify-items: start;
     h1{
       font-weight: 800;
-      font-size: 64px;
-      line-height: 72px;
+      font-size: 6.4rem;
+      line-height: 7.2rem;
       color: #E4E4E4;
     }
     p{
       margin-top: 1.6rem;
       font-weight: 400;
-      font-size: 24px;
-      line-height: 36px;
+      font-size: 2.4rem;
+      line-height: 3.6rem;
       color: #AFAFAF;
     }
     a{
@@ -31,8 +31,8 @@
       padding: 1.3rem 6.8rem;
       border: 2px solid #E4E4E4;
       font-weight: 400;
-      font-size: 24px;
-      line-height: 33px;
+      font-size: 2.4rem;
+      line-height: 3.3rem;
       color: #E4E4E4;
     }
   }
@@ -43,8 +43,8 @@
     }
     a{
       font-weight: 700;
-      font-size: 24px;
-      line-height: 33px;
+      font-size: 2.4rem;
+      line-height: 3.3rem;
       color: #E4E4E4;
       cursor: pointer;
       &:hover{
@@ -57,21 +57,21 @@
     }
     p{
       font-weight: 400;
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
       color: #7D7D7D;
     }
   }
 }
 
 .slider {
-  width: 40%;
+  width: 50%;
   grid-column: 1/3;
   justify-self: center;
   h2{
     font-weight: 700;
-    font-size: 36px;
-    line-height: 49px;
+    font-size: 3.6rem;
+    line-height: 4.9rem;
     color: #E4E4E4;
   }
   .slick-list {
@@ -84,5 +84,24 @@
   .slick-prev {
     left: calc(100% - 7rem);
     top: -6rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .homePage {
+    &__about {
+      h1{
+        font-size: 4.8rem;
+        line-height: 6rem;
+      }
+      p{
+        font-size: 1.8rem;
+      }
+      a{
+        margin-top: 4.7rem;
+        font-size: 2rem;
+        line-height: 2.7rem;
+      }
+    }
   }
 }

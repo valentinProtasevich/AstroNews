@@ -41,7 +41,7 @@ const Homepage = () => {
         </article>
         <SimpleSlider>
           {data.map(item => (
-            <div id={item.id} className="homePage__newsContainer">
+            <div key={item.id} className="homePage__newsContainer">
               <img src={item.imageUrl} alt="" />
               <a href={item.url}>{item.title}</a>
               <div className="homePage__newsContainer_newsSite">

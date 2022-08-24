@@ -1,0 +1,22 @@
+.footer {
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2.5rem;
+    padding-bottom: 2.4rem;
+    padding-left: 10.4rem;
+    padding-right: 10.4rem;
+    border-top: 1px solid #595959;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #7D7D7D;
+    p{
+      color: #7D7D7D;
+    }
+  }
+  &__socialContainer {
+    display: flex;
+    column-gap: 1.6rem;
+  }
+}

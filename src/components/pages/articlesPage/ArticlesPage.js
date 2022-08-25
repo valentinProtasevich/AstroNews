@@ -14,15 +14,7 @@ const ArticlesPage = () => {
   const {data: blog} = useGetBlogsQuery(amount);
   const {data: reports} = useGetReportsQuery(amount);
 
-  useEffect(() => {
-    document.querySelectorAll('.articles__button').forEach((element) => {
-      element.classList.remove('articles__active');
-    })
-    console.log('effect');
-    getContent(category);
-  });
-
-  let listItems = [];
+  let listItems = news;
   
   const getContent = (category) => {
     switch (category) {
@@ -48,6 +40,13 @@ const ArticlesPage = () => {
         break;
     }
   };
+
+  useEffect(() => {
+    document.querySelectorAll('.articles__button').forEach((element) => {
+      element.classList.remove('articles__active');
+    })
+    getContent(category);
+  });
 
   getContent(category);
 

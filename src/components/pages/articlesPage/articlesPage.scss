@@ -1,0 +1,110 @@
+.articles {
+  &__flex {
+    display: flex;
+    margin-top: 8rem;
+    margin-bottom: 7rem;
+  }
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.4rem;
+    width: 31.3rem;
+    margin-top: 0.8rem;
+    margin-left: 10.4rem;
+    h2{
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-size: 2rem;
+      line-height: 2.7rem;
+      color: #E4E4E4;
+    }
+  }
+  &__button {
+    align-self: flex-start;
+    border: 0;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: #8D8D8D;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 31.3rem);
+    margin-right: 10.4rem;
+    h1 {
+      margin-bottom: 3.3rem;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+      color: #E4E4E4;
+    }
+  }
+  &__section {
+    display: flex;
+    column-gap: 2.8rem;
+    width: 100%;
+    padding-top: 5.5rem;
+    padding-bottom: 6.6rem;
+    padding-left: 3.1rem;
+    padding-right: 6.3rem;
+    border: 1px solid #605D5D;
+    img {
+      width: 50%;
+    }
+    &_description {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.8rem;
+      width: 50%;
+    }
+    a {
+      font-weight: 600;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      color: #E4E4E4;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    &_sourceContainer {
+      display: flex;
+      white-space: pre-wrap;
+      p {
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        color: #7D7D7D;
+      }
+    }
+    &_summary {
+      margin-top: 0.8rem;
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: #E0E0E0;
+    }
+  }
+  &__active {
+    color: #E4E4E4;
+  }
+  &__more {
+    align-self: center;
+    border: 0;
+    margin-top: 2rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: #E4E4E4;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

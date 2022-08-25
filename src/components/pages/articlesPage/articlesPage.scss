@@ -40,13 +40,14 @@
     h1 {
       margin-bottom: 3.3rem;
       font-weight: 700;
-      font-size: 32px;
-      line-height: 44px;
+      font-size: 3.2rem;
+      line-height: 4.4rem;
       color: #E4E4E4;
     }
   }
   &__section {
     display: flex;
+    align-items: flex-start;
     column-gap: 2.8rem;
     width: 100%;
     padding-top: 5.5rem;
@@ -108,3 +109,55 @@
     }
   }
 }
+
+@media (max-width: 1023px) {
+  .articles {
+    &__flex {
+      margin-bottom: 5rem;
+    }
+    &__navigation {
+      width: 21.9rem;
+      margin-left: 5rem;
+    }
+    &__container {
+      width: calc(100% - 21.9rem);
+      margin-right: 5rem;
+      h1 {
+        margin-bottom: 3.6rem;
+        font-size: 3rem;
+        line-height: 4.1rem;
+      }
+    }
+    &__section {
+      column-gap: 1.7rem;
+      padding-top: 5.3rem;
+      padding-bottom: 5.1rem;
+      padding-left: 2.4rem;
+      padding-right: 2.4rem;
+      &_description {
+        row-gap: 0.4rem;
+      }
+      a {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+      }
+      &_sourceContainer {
+        p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+      &_summary {
+        margin-top: 1.2rem;
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+      }
+    }
+    &__more {
+      margin-top: 1.6rem;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
+  }
+}
+

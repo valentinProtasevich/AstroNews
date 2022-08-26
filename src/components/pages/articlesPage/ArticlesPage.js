@@ -12,9 +12,9 @@ import openImg from '../../../resources/img/open-category.svg';
 const ArticlesPage = () => {
   const [category, setCategory] = useState('Новости');
   const [amount, setAmount] = useState(5);
-  const {data: news} = useGetNewsQuery(amount);
-  const {data: blog} = useGetBlogsQuery(amount);
-  const {data: reports} = useGetReportsQuery(amount);
+  const {data: news = []} = useGetNewsQuery(amount);
+  const {data: blog = []} = useGetBlogsQuery(amount);
+  const {data: reports = []} = useGetReportsQuery(amount);
 
   let listItems = news;
   
@@ -54,7 +54,6 @@ const ArticlesPage = () => {
 
   const activateNavigation = () => {
     document.querySelector('.articles__navigation').classList.toggle('open');
-    //document.querySelector('.articles__navigation_openButton').classList.toggle('active');
   }
 
   return (

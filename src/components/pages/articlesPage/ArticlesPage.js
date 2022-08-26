@@ -7,6 +7,8 @@ import getDate from "../../../helpers/getDate";
 
 import './articlesPage.scss';
 
+import openImg from '../../../resources/img/open-category.svg';
+
 const ArticlesPage = () => {
   const [category, setCategory] = useState('Новости');
   const [amount, setAmount] = useState(5);
@@ -50,6 +52,11 @@ const ArticlesPage = () => {
 
   getContent(category);
 
+  const activateNavigation = () => {
+    document.querySelector('.articles__navigation').classList.toggle('open');
+    //document.querySelector('.articles__navigation_openButton').classList.toggle('active');
+  }
+
   return (
     <>
       <Helmet>
@@ -65,6 +72,13 @@ const ArticlesPage = () => {
       </div>
       <div className="articles__flex">
         <nav className="articles__navigation">
+          <p className="articles__navigation_activeCategory">{category}</p>
+          <img 
+            className="articles__navigation_openButton" 
+            src={openImg} 
+            alt="Open category" 
+            width={12} 
+            onClick={activateNavigation}/>
           <h2>Категории</h2>
           <button 
             className="articles__button news" 
@@ -73,6 +87,7 @@ const ArticlesPage = () => {
                 setAmount(5)
               }
               setCategory('Новости'); 
+              activateNavigation();
             }}>
             Новости
           </button>
@@ -83,6 +98,7 @@ const ArticlesPage = () => {
                 setAmount(5)
               }
               setCategory('Блоги');
+              activateNavigation();
             }}>
             Блоги
           </button>
@@ -93,6 +109,7 @@ const ArticlesPage = () => {
                 setAmount(5)
               }
               setCategory('Отчеты'); 
+              activateNavigation();
             }}>
             Отчеты
           </button>

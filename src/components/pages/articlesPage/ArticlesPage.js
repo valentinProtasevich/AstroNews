@@ -12,28 +12,36 @@ import openImg from '../../../resources/img/open-category.svg';
 const ArticlesPage = () => {
   const [category, setCategory] = useState('Новости');
   const [amount, setAmount] = useState(5);
-  const {data: news = []} = useGetNewsQuery(amount);
-  const {data: blog = []} = useGetBlogsQuery(amount);
-  const {data: reports = []} = useGetReportsQuery(amount);
+  const {data: news = [], error: newsError, isLoading: newsLoading} = useGetNewsQuery(amount);
+  const {data: blog = [], error: blogError, isLoading: blogLoading} = useGetBlogsQuery(amount);
+  const {data: reports = [], error: reportsError, isLoading: rerortsLoading} = useGetReportsQuery(amount);
 
   let listItems = news;
+  let errorMessage;
+  let loading;
   
   const getContent = (category) => {
     switch (category) {
       case 'Новости':
         listItems = news;
+        errorMessage = newsError;
+        loading = newsLoading;
         if (document.querySelector('.news')) {  
           document.querySelector('.news').classList.add('articles__active');
         }
         break;
       case 'Блоги':
         listItems = blog;
+        errorMessage = blogError;
+        loading = blogLoading;
         if (document.querySelector('.blog')) {  
           document.querySelector('.blog').classList.add('articles__active');
         }
         break;
       case 'Отчеты':
         listItems = reports;
+        errorMessage = reportsError;
+        loading = rerortsLoading;
         if (document.querySelector('.reports')) {  
           document.querySelector('.reports').classList.add('articles__active');
         }
@@ -115,6 +123,8 @@ const ArticlesPage = () => {
         </nav>
         <div className="articles__container">
           <h1>Статьи</h1>
+          {errorMessage && <h1>Произошла ошибка при загрузке</h1>}
+          {loading && <h1>Идет загрузка...</h1>}
           {listItems.map(item => (
             <div key={item.id} className="articles__section">
               <img src={item.imageUrl} alt="Demo" />

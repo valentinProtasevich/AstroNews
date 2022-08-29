@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 
-import { useGetNewsQuery, useGetBlogsQuery, useGetReportsQuery } from "../../../api/newsApi";
+import { useGetNewsQuery } from "../../../api/newsApi";
 
 import SimpleSlider from "../../simpleSlider/SimpleSlider";
 import getDate from "../../../helpers/getDate";
@@ -12,12 +12,6 @@ import bg_planet from '../../../resources/img/home-img.jpg';
 
 const Homepage = () => {
   const {data = []} = useGetNewsQuery();
-  const {data: blog} = useGetBlogsQuery(5);
-  const {data: reports} = useGetReportsQuery(5);
-
-  console.log(data);
-  console.log(blog);
-  console.log(reports);
   
   return (
     <>

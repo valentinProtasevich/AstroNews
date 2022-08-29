@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 
-import { useGetNewsQuery } from "../../../api/newsApi";
+import { useGetNewsQuery, useGetBlogsQuery, useGetReportsQuery } from "../../../api/newsApi";
 
 import SimpleSlider from "../../simpleSlider/SimpleSlider";
+import getDate from "../../../helpers/getDate";
 
 import './homePage.scss';
 
@@ -11,17 +12,12 @@ import bg_planet from '../../../resources/img/home-img.jpg';
 
 const Homepage = () => {
   const {data = []} = useGetNewsQuery();
+  const {data: blog} = useGetBlogsQuery(5);
+  const {data: reports} = useGetReportsQuery(5);
 
-  let getDate = (date) => {
-    let dateObj = new Date(Date.parse(date));
-    let year = dateObj.getFullYear();
-    let month = dateObj.getMonth() + 1;
-    if (month < 10) {
-      month = '0' + month;
-    };
-    let day = dateObj.getDate();
-    return `${day}.${month}.${year}`;
-  };
+  console.log(data);
+  console.log(blog);
+  console.log(reports);
   
   return (
     <>
@@ -42,8 +38,8 @@ const Homepage = () => {
         <SimpleSlider>
           {data.map(item => (
             <div key={item.id} className="homePage__newsContainer">
-              <img src={item.imageUrl} alt="" />
-              <a href={item.url}>{item.title}</a>
+              <img src={item.imageUrl} alt="Demo" />
+              <a href={item.url} target='_blank' rel="noreferrer">{item.title}</a>
               <div className="homePage__newsContainer_newsSite">
                 <p>{item.newsSite} / </p>
                 <p>{getDate(item.publishedAt)}</p>
